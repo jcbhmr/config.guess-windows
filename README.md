@@ -7,10 +7,22 @@
 ⚠️ **This project is only designed to be used on Windows systems.** For other platforms, use the pre-POSIX shell script [`config.guess`](https://cgit.git.savannah.gnu.org/cgit/config.git/tree/config.guess) that works on all other platforms.
 
 ```pwsh
-Invoke-WebRequest \
-    -Uri "https://github.com/jcbhmr/config.guess-windows/raw/main/config.guess.bat" \
-    -OutFile "./config.guess.bat"
+git clone "https://github.com/jcbhmr/config.guess-windows.git"
 ```
+
+The script is `config.guess.bat` inside the cloned Git repository.
+
+## Usage
+
+TODO: Add usage
+
+<details>
+
+```
+x86_64-pc-windows-msvc
+```
+
+</details>
 
 ## Development
 

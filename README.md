@@ -12,7 +12,7 @@ Invoke-WebRequest \
   -OutFile "./config.guess.bat"
 ```
 
-You are encouraged to vendor both `config.guess` from [GNU config](https://savannah.gnu.org/projects/config) and `config.guess.bat` from this project and use `gnu_target=$(./config.guess)` or similar.
+You are encouraged to vendor both [`config.guess`](https://cgit.git.savannah.gnu.org/cgit/config.git/tree/config.guess) from [GNU config](https://savannah.gnu.org/projects/config) and [`config.guess.bat`](./config.guess.bat) from this project and use `gnu_target=$(./config.guess)` or similar.
 
 ## Usage
 

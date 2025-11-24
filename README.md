@@ -4,13 +4,15 @@
 
 ## Installation
 
-⚠️ **This project is only designed to be used on Windows systems.** For other platforms, use the pre-POSIX shell script [`config.guess`](https://cgit.git.savannah.gnu.org/cgit/config.git/tree/config.guess) that works on all other platforms.
+⚠️ **This project is only designed to be used on Windows systems.** For other platforms, use the pre-POSIX shell script [`config.guess`](https://cgit.git.savannah.gnu.org/cgit/config.git/tree/config.guess) from [the official GNU config repository](https://savannah.gnu.org/projects/config) that works on all other platforms.
 
 ```pwsh
-git clone "https://github.com/jcbhmr/config.guess-windows.git"
+Invoke-WebRequest \
+  -Uri "https://github.com/jcbhmr/config.guess-windows/raw/main/config.guess.bat" \
+  -OutFile "./config.guess.bat"
 ```
 
-The script is `config.guess.bat` inside the cloned Git repository.
+You are encouraged to vendor both `config.guess` from [GNU config](https://savannah.gnu.org/projects/config) and `config.guess.bat` from this project and use `c=$(./config.guess)` or similar.
 
 ## Usage
 

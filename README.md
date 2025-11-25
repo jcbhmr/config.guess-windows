@@ -49,3 +49,5 @@ kernel = ... // Any known kernel name. Ex: "linux", "windows", "darwin"
 os = ... // Any known OS name. Ex: "gnu", "mingw32", "cygwin"
 obj = ... // Any known object format name. Ex: "elf", "macho", "pe"
 ```
+
+The equivalent of `var=$(command a b c)` in Bash is `for /f "delims=" %%i in ('command a b c') do set var=%%i` in Batch.

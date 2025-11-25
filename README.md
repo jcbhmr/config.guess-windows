@@ -1,34 +1,44 @@
 # `config.guess` for Windows
 
-❓ GNU config.guess script ported to Windows Batch
+❓ GNU config.guess ported to Windows Batch
+
+<table align=center><td>
+
+```pwsh
+./config.guess
+```
+
+</table>
 
 ## Installation
 
-⚠️ **This project is only designed to be used on Windows systems.** For other platforms, use the pre-POSIX shell script [`config.guess`](https://cgit.git.savannah.gnu.org/cgit/config.git/tree/config.guess) from [the official GNU config repository](https://savannah.gnu.org/projects/config) that works on all other platforms.
+⚠️ **This script is only designed to be used on Windows systems.** Use [`config.guess`](https://cgit.git.savannah.gnu.org/cgit/config.git/tree/config.guess) for all other platforms.
 
 ```pwsh
 Invoke-WebRequest \
-  -Uri "https://github.com/jcbhmr/config.guess-windows/raw/main/config.guess.bat" \
-  -OutFile "./config.guess.bat"
+  -Uri "https://github.com/jcbhmr/config.guess-windows/raw/main/config.guess.cmd" \
+  -OutFile "./config.guess.cmd"
 ```
 
-You are encouraged to vendor both [`config.guess`](https://cgit.git.savannah.gnu.org/cgit/config.git/tree/config.guess) from [GNU config](https://savannah.gnu.org/projects/config) and [`config.guess.bat`](./config.guess.bat) from this project and use `gnu_target=$(./config.guess)` or similar.
+**Requires `cmd.exe`.** Doesn't work on Windows 9x.
 
 ## Usage
 
-TODO: Add usage
+After downloading `config.guess.cmd`, you can use it just like you would the GNU `confug.guess` script:
 
-<details>
-
-```
-x86_64-pc-windows-msvc
+```pwsh
+./config.guess
 ```
 
-</details>
+The script will output a GNU-style target configuration tuple like `x86_64-pc-windows-msvc` specific to your current system.
+
+📚 Check out Wikipedia's [Comparison of Microsoft Windows versions](https://en.wikipedia.org/wiki/Comparison_of_Microsoft_Windows_versions) to learn more about which Windows versions supported which CPU architectures. IA-32 is `i386`, IA-64 is `ia64`, x86-64 is `x86_64`, ARMv7 is `armv7`, and ARM64 is `arm64`.
+
+The most popular Windows targets are `(x86_64|arm64)-unknown-windows-(msvc|gnu)`.
 
 ## Development
 
-The canonical GNU target configuration syntax is:
+The canonical GNU target configuration syntax printed by GNU `config.guess` and `config.sub` is:
 
 ```c
 configuration = cpu "-" vendor ("-" kernel)? ("-" os)? ("-" obj)?

@@ -1,7 +1,4 @@
 @echo off
-setlocal EnableDelayedExpansion
-setlocal EnableExtensions
-
 rem Attempt to guess a canonical system name.
 rem Copyright (C) 2025 Jacob Hummer
 rem
@@ -20,6 +17,9 @@ rem along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 rem SPDX-License-Identifier: GPL-3.0-or-later
 rem Please submit patches to <https://github.com/jcbhmr/config.guess-windows>
+
+setlocal EnableDelayedExpansion
+setlocal EnableExtensions
 
 set "timestamp=2025-07-10"
 

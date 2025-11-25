@@ -23,8 +23,6 @@ setlocal EnableExtensions
 
 set "timestamp=2025-07-10"
 
-batch("");
-
 if "%1"=="--time-stamp" goto :print_timestamp
 if "%1:~0,6%"=="--time" goto :print_timestamp
 if "%1"=="-t" goto :print_timestamp

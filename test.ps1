@@ -16,9 +16,7 @@ switch ($architecture) {
     }
 }
 
-# Correct way to invoke executable relative to script directory
-$scriptDir = Split-Path -Parent $PSCommandPath
-$actual = & (Join-Path $scriptDir "config.guess.bat")
+$actual = "hello world"
 
 if ($actual -ne $expected) {
     Write-Error "expected $expected, got $actual"

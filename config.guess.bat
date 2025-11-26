@@ -18,9 +18,6 @@ rem along with this program.  If not, see <https://www.gnu.org/licenses/>.
 rem SPDX-License-Identifier: GPL-3.0-or-later
 rem Please submit patches to <https://github.com/jcbhmr/config.guess-windows>
 
-setlocal EnableDelayedExpansion
-setlocal EnableExtensions
-
 set "timestamp=2025-07-10"
 
 if "%1"=="--time-stamp" goto :print_timestamp
@@ -31,45 +28,43 @@ if "%1"=="-v" goto :print_version
 if "%1"=="--help" goto :print_help
 if "%1:~0,3%"=="--h" goto :print_help
 if "%1"=="-h" goto :print_help
-if "%1"=="--" goto :main
-if "%1:~0,1%"=="-" goto :main
-:main
-if /i "!PROCESSOR_ARCHITECTURE!"=="AMD64" (
+set "cpu=unknown"
+if "%PROCESSOR_ARCHITECTURE%"=="AMD64" (
   set "cpu=x86_64"
-) else if /i "!PROCESSOR_ARCHITECTURE!"=="IA64" (
+) else if "%PROCESSOR_ARCHITECTURE%"=="IA64" (
   set "cpu=ia64"
-) else if /i "!PROCESSOR_ARCHITECTURE!"=="ARM64" (
+) else if "%PROCESSOR_ARCHITECTURE%"=="ARM64" (
   set "cpu=arm64"
-) else if /i "!PROCESSOR_ARCHITECTURE!"=="EM64T" (
+) else if "%PROCESSOR_ARCHITECTURE%"=="EM64T" (
   set "cpu=x86_64"
-) else if /i "!PROCESSOR_ARCHITECTURE!"=="x86" (
+) else if "%PROCESSOR_ARCHITECTURE%"=="x86" (
   set "cpu=i386"
 )
 set "vendor=unknown"
 set "kernel=windows"
 set "os="
 set "obj="
-if "!kernel!"=="" (
+if "%kernel%"=="" (
   set "kernel_suffix="
 ) else (
-  set "kernel_suffix=-!kernel!"
+  set "kernel_suffix=-%kernel%"
 )
-if "!os!"=="" (
+if "%os%"=="" (
   set "os_suffix="
 ) else (
-  set "os_suffix=-!suffix!"
+  set "os_suffix=-%os%"
 )
-if "!obj!"=="" (
+if "%obj%"=="" (
   set "obj_suffix="
 ) else (
-  set "obj_suffix=-!obj!"
+  set "obj_suffix=-%obj%"
 )
-echo "!cpu!-!vendor!!kernel_suffix!!os_suffix!!obj_suffix!"
+echo "%cpu%-%vendor%%kernel_suffix%%os_suffix%%obj_suffix%"
 exit 0
 
 :print_timestamp
-echo "!timestamp!"
-exit /B
+echo "%timestamp%"
+exit
 
 :print_version
 echo "Jacob Hummer config.guess.bat (%timestamp%)"
@@ -78,7 +73,7 @@ echo "Copyright (C) 2025 Jacob Hummer"
 echo
 echo "This is free software; see the source for copying conditions.  There is NO"
 echo "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
-exit /B
+exit
 
 :print_usage
 echo "Usage: %~n0 [OPTION]"
@@ -92,8 +87,8 @@ echo "  -v, --version      print version number, then exit"
 echo
 echo
 echo "Report bugs and patches to <https://github.com/jcbhmr/config.guess-windows>"
-exit /B
+exit
 
 :print_help
 echo "Try '%~n0 --help' for more information."
-exit /B
+exit

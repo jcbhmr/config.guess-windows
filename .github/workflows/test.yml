@@ -21,12 +21,11 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v6
-      - shell: bash
-        env:
+      - env:
           expected: ${{ matrix.expected }}
         run: |
-          actual=$(./config.guess)
-          if [[ $actual != $expected ]]; then
-            echo "expected $expected, got $actual"
-            exit 1
-          fi
+          $actual = ./config.guess
+          if ($actual -ne $Env:expected) {
+            Write-Host "expected $($Env:expected), got $actual"
+            Exit 1
+          }

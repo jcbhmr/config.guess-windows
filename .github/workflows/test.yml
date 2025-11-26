@@ -1,0 +1,25 @@
+name: Test
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  test:
+    strategy:
+      matrix:
+        include:
+          - { os: windows-2025, expected: x86_64-pc-windows-msvc }
+          - { os: windows-11-arm, expected: arm64-pc-windows-msvc }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v6
+      - shell: bash
+        env:
+          expected: ${{ matrix.expected }}
+        run: |
+          actual=$(./config.guess)
+          if [[ $actual != $expected ]]; then
+            echo "expected $expected, got $actual"
+            exit 1
+          fi

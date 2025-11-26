@@ -14,7 +14,7 @@ if ($architecture -eq "X64") {
 if ($architecture -eq "ARM64") {
   $expected = "arm64-pc-windows-msvc"
 }
-$actual = &"./config.guess"
+$actual = ./config.guess.bat
 
 if ($actual -ne $expected) {
   Write-Host "expected $expected, got $actual"

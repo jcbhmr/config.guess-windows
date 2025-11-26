@@ -16,7 +16,7 @@ switch ($architecture) {
     }
 }
 
-$actual = "hello world"
+$actual = &"./config.guess.bat"
 
 if ($actual -ne $expected) {
     Write-Error "expected $expected, got $actual"

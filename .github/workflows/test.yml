@@ -6,26 +6,13 @@ on:
     branches: [ "main" ]
 
 jobs:
-  test-help:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v6
-      - run: ./config.guess --help
-
-  test-output:
+  test:
     strategy:
       matrix:
         include:
-          - { os: windows-2025, expected: x86_64-pc-windows-msvc }
-          - { os: windows-11-arm, expected: arm64-pc-windows-msvc }
+          - os: windows-2025
+          - os: windows-11-arm
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v6
-      - env:
-          expected: ${{ matrix.expected }}
-        run: |
-          $actual = ./config.guess
-          if ($actual -ne $Env:expected) {
-            Write-Host "expected $($Env:expected), got $actual"
-            Exit 1
-          }
+      - run: ./test.ps1

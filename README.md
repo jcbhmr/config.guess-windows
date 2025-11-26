@@ -16,15 +16,13 @@
 
 ```pwsh
 Invoke-WebRequest \
-  -Uri "https://github.com/jcbhmr/config.guess-windows/raw/main/config.guess.cmd" \
-  -OutFile "./config.guess.cmd"
+  -Uri "https://github.com/jcbhmr/config.guess-windows/raw/main/config.guess.bat" \
+  -OutFile "./config.guess.bat"
 ```
-
-**Requires `cmd.exe`.** Doesn't work on Windows 9x.
 
 ## Usage
 
-After downloading `config.guess.cmd`, you can use it just like you would the GNU `confug.guess` script:
+After downloading `config.guess.bat`, you can use it just like you would the GNU `confug.guess` script:
 
 ```pwsh
 ./config.guess
@@ -32,9 +30,9 @@ After downloading `config.guess.cmd`, you can use it just like you would the GNU
 
 The script will output a GNU-style target configuration tuple like `x86_64-pc-windows-msvc` specific to your current system.
 
-📚 Check out Wikipedia's [Comparison of Microsoft Windows versions](https://en.wikipedia.org/wiki/Comparison_of_Microsoft_Windows_versions) to learn more about which Windows versions supported which CPU architectures. IA-32 is `i386`, IA-64 is `ia64`, x86-64 is `x86_64`, ARMv7 is `armv7`, and ARM64 is `arm64`.
+📚 Check out Wikipedia's [Comparison of Microsoft Windows versions](https://en.wikipedia.org/wiki/Comparison_of_Microsoft_Windows_versions) to learn more about which Windows versions support which hardware.
 
-The most popular Windows targets are `(x86_64|arm64)-unknown-windows-(msvc|gnu)`.
+The most popular Windows targets are `(x86_64|arm64)-(unknown|pc)-windows-(msvc|gnu)`.
 
 ## Development
 

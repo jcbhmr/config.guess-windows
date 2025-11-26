@@ -4,8 +4,15 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+
 jobs:
-  test:
+  test-help:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v6
+      - run: ./config.guess --help
+
+  test-output:
     strategy:
       matrix:
         include:

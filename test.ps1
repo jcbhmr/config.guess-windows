@@ -2,23 +2,27 @@
 $ErrorActionPreference = "Stop"
 
 if (-not $IsWindows) {
-  Write-Host "This script only works on Windows systems"
-  Exit 1
+    Write-Error "this script only works on Windows systems"
+    exit 1
 }
 
-$architecture = [System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture
-$expected = ""
-if ($architecture -eq "X64") {
-  $expected = "x86_64-pc-windows-msvc"
+$architecture = [string][System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture
+switch ($architecture) {
+    "X64"   { $expected = "x86_64-pc-windows-msvc" }
+    "Arm64" { $expected = "arm64-pc-windows-msvc" }
+    default {
+        Write-Error "unsupported architecture: $architecture"
+        exit 1
+    }
 }
-if ($architecture -eq "ARM64") {
-  $expected = "arm64-pc-windows-msvc"
-}
-$actual = ./config.guess.bat
+
+# Correct way to invoke executable relative to script directory
+$scriptDir = Split-Path -Parent $PSCommandPath
+$actual = & (Join-Path $scriptDir "config.guess.bat")
 
 if ($actual -ne $expected) {
-  Write-Host "expected $expected, got $actual"
-  Exit 1
+    Write-Error "expected $expected, got $actual"
+    exit 1
 }
 
 Write-Host "got expected $expected"

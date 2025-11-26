@@ -13,10 +13,10 @@ rem MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 rem GNU General Public License for more details.
 rem
 rem You should have received a copy of the GNU General Public License
-rem along with this program.  If not, see <https://www.gnu.org/licenses/>.
+rem along with this program.  If not, see https://www.gnu.org/licenses/.
 
 rem SPDX-License-Identifier: GPL-3.0-or-later
-rem Please submit patches to <https://github.com/jcbhmr/config.guess-windows>
+rem Please submit patches to https://github.com/jcbhmr/config.guess-windows
 
 set "timestamp=2025-07-10"
 

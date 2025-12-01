@@ -13,20 +13,19 @@ rem MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 rem GNU General Public License for more details.
 rem
 rem You should have received a copy of the GNU General Public License
-rem along with this program.  If not, see https://www.gnu.org/licenses/.
+rem along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 rem SPDX-License-Identifier: GPL-3.0-or-later
-rem Please submit patches to https://github.com/jcbhmr/config.guess-windows
+rem Please submit patches to <https://github.com/jcbhmr/config.guess-windows>
 
 set "timestamp=2025-07-10"
 
 if "%1"=="--time-stamp" goto :print_timestamp
-if "%1:~0,6%"=="--time" goto :print_timestamp
+if "%1"=="--timestamp" goto :print_timestamp
 if "%1"=="-t" goto :print_timestamp
 if "%1"=="--version" goto :print_version
 if "%1"=="-v" goto :print_version
 if "%1"=="--help" goto :print_help
-if "%1:~0,3%"=="--h" goto :print_help
 if "%1"=="-h" goto :print_help
 set "cpu=unknown"
 if "%PROCESSOR_ARCHITECTURE%"=="AMD64" (

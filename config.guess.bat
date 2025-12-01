@@ -39,7 +39,7 @@ if "%PROCESSOR_ARCHITECTURE%"=="AMD64" (
 ) else if "%PROCESSOR_ARCHITECTURE%"=="x86" (
   set "cpu=i386"
 )
-set "vendor=unknown"
+set "vendor=pc"
 set "kernel=windows"
 set "os="
 set "obj="

@@ -32,7 +32,7 @@ The script will output a GNU-style target configuration tuple like `x86_64-pc-wi
 
 📚 Check out Wikipedia's [Comparison of Microsoft Windows versions](https://en.wikipedia.org/wiki/Comparison_of_Microsoft_Windows_versions) to learn more about which Windows versions support which hardware.
 
-The most popular Windows targets are `(x86_64|arm64)-(unknown|pc)-windows-(msvc|gnu)`.
+The most popular Windows targets are `(x86_64|arm64)-pc-windows-msvc`.
 
 ## Development
 
